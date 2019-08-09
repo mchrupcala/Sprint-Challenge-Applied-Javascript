@@ -18,36 +18,52 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-// axios.get('https://lambda-times-backend.herokuapp.com/articles')
-//     .then( response => {
-//         console.log(response);
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     })
+function createArticle(deets) {
+    const card = document.createElement('div');
+    const newHeadline = document.createElement('div');
+    const newAuthor = document.createElement('div');
+    const imgCont = document.createElement('div');
+    const newImg = document.createElement('img');
+    const newSpan = document.createElement('span');
 
+    card.appendChild(newHeadline);
+    card.appendChild(newAuthor);
+    newAuthor.appendChild(imgCont);
+    imgCont.appendChild(newImg);
+    newAuthor.appendChild(newSpan);
 
-// function createArticle() {
-//     const card = document.createElement('div');
-//     const newHeadline = document.createElement('div');
-//     const newAuthor = document.createElement('div');
-//     const imgCont = document.createElement('div');
-//     const newImg = document.createElement('img');
-//     const newSpan = document.createElement('span');
+    card.classList.add('card');
+    newHeadline.classList.add('headline');
+    newHeadline.textContent = deets.headline;
+    newAuthor.classList.add('author');
+    imgCont.classList.add('img-container');
+    newImg.src = deets.authorPhoto;
+    newSpan.textContent = `By ${deets.authorName}`;
 
-//     card.appendChild(newHeadline);
-//     card.appendChild(newAuthor);
-//     newAuthor.appendChild(imgCont);
-//     imgCont.appendChild(newImg);
-//     newAuthor.appendChild(newSpan);
+    return card;
+}
 
-//     card.classList.add('card');
-//     newHeadline.classList.add('headline');
-//     newHeadline.textContent = 
-//     newAuthor.classList.add('author');
-//     imgCont.classList.add('img-container');
-//     newImg.src = 
-//     newIMg.textContent = 
-//     newSpan.textContent = `By ${}`;
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then( response => {
+        // console.log(response.data);
+        console.log(response.data.articles);
+        const articles = response.data.articles;
+        const arrayArticles = Array.from(articles);
+        console.log(arrayArticles);
+        for (let i = 0; i < articles.length; i++) {
+            console.log(arrayArticles[i]);
+        }
 
-// }
+        // console.log(articles);
+        // response.data.articles.forEach( r => {
+            // console.log(r);
+        //     // r.forEach( innerArray => {
+        //     //     let newCard = createArticle(innerArray);
+        //     //     const card = document.querySelector('.cards-container');
+        //     //     card.appendChild(newCard);
+        //     // })
+        // })
+    })
+    .catch(err => {
+        console.log(err);
+    })
