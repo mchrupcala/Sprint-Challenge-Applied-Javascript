@@ -45,24 +45,20 @@ function createArticle(deets) {
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then( response => {
-        // console.log(response.data);
-        console.log(response.data.articles);
-        const articles = response.data.articles;
-        const arrayArticles = Array.from(articles);
-        console.log(arrayArticles);
-        for (let i = 0; i < articles.length; i++) {
-            console.log(arrayArticles[i]);
-        }
+        const articles = Object.entries(response.data.articles);
+        console.log(articles);
 
-        // console.log(articles);
-        // response.data.articles.forEach( r => {
-            // console.log(r);
-        //     // r.forEach( innerArray => {
-        //     //     let newCard = createArticle(innerArray);
-        //     //     const card = document.querySelector('.cards-container');
-        //     //     card.appendChild(newCard);
-        //     // })
-        // })
+        for (let i = 0; i < articles.length; i++) {
+            // console.log(articles[i][1]);
+            let entry = articles[i][1];
+
+            entry.forEach( innerArray => {
+                // console.log(innerArray);
+                let newCard = createArticle(innerArray);
+                const card = document.querySelector('.cards-container');
+                card.appendChild(newCard);
+            })
+        }
     })
     .catch(err => {
         console.log(err);
