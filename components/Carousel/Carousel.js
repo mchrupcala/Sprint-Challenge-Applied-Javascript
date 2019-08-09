@@ -38,10 +38,10 @@ function createCarousel() {
   newCar.classList.add('carousel');
   newButtonLeft.classList.add('left-button');
   newButtonRight.classList.add('right-button');
-  // newimg1.src = 
-  // newimg2.src = 
-  // newimg3.src = 
-  // newimg4.src = 
+   newimg1.src = './assets/carousel/mountains.jpeg';
+  newimg2.src = './assets/carousel/computer.jpeg';
+  newimg3.src = './assets/carousel/trees.jpeg';
+  newimg4.src = './assets/carousel/turntable.jpeg';
 
   let currentIndex = 0;
 
