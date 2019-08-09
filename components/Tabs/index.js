@@ -11,13 +11,13 @@
 function newTab(attrs) {
     const newTab = document.createElement('div');
     newTab.classList.add('tab');
-    newTab.textContent = attrs.topics;
+    newTab.textContent = attrs;
+    return newTab;
 }
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
     .then(response => {
-        console.log(response);
-        response.data.forEach( r => {
+        response.data.topics.forEach( r => {
             let tab = newTab(r);
             let container = document.querySelector('.topics');
             container.appendChild(tab);
