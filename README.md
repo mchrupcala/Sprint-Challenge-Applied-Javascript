@@ -30,13 +30,24 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+    A: The Document Object Model. 'Document' specifically is an object, but it holds literally everything that I'm working on inside the browser window. It's all of the JavaScript that's running my website. Where all of the objects, methods, etc that I create are held.
+
 2. What is an event?
+
+    A: User input/interaction. Clicks, scrolls, even the webpage loading within their browser- these are all events that can trigger a block of code to start running.
 
 3. What is an event listener?
 
+    A: It's a method that waits for user input (an event) and then triggers some function that I've selected. This is how websites respond to a button-click - nothing will happen without an event listener that's searching for user interaction.
+
 4. Why would we convert a NodeList into an Array?
 
+    A: NodeLists are useful, but they don't have the full functionality of an Array. For example, I can use forEach method but I can't use Map on a NodeList. If I want to use a wider list of methods then I'd have to convert the nodelist to an array first.
+
 5. What is a component?
+
+    A: It's a smaller, reusable subsection of my code. Very helpful when I'm taking user input (especially data from an API) and manipulating it somehow in a repetitive way - DRY!
+    
 
 ### Git Set up
 
